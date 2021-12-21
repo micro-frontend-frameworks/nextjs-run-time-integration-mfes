@@ -29,6 +29,8 @@ export default async function handler(
     const html = ReactDOMServer.renderToString(PageComponent);
 
     res.setHeader("Content-Type", "application/json");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.status(200).json({ html });
   } catch (error) {
     res.status(500).end("Bad Gateway");
